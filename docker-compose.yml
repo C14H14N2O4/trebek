@@ -1,0 +1,15 @@
+version: "3"
+services:
+  server:
+    build: trebek_server/
+    command: npm start
+    ports:
+    - 8000:8000
+    # network_mode: host
+  client:
+    build: trebek_client/
+    command: npm start
+    ports:
+    - 3000:3000
+    depends_on:
+    - server
